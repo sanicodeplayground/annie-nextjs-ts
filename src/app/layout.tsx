@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 // import { Inter } from "next/font/google";
@@ -19,22 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
         <Header />
+        {children}
         <Footer />
       </body>
     </html>
   );
 }
-
-// const Layout = ({ children }) => {
-//   return (
-//     <html lang="en">
-//       <body>
-//         <main>{children}</main>
-//       </body>
-//     </html>
-//   );
-// };
-
-// export default Layout;

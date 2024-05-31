@@ -1,11 +1,12 @@
 import Hero from "../components/Hero";
-import "./globals.css";
+import Projects from "../components/Projects";
 
 const Home = () => {
   return (
-    <body>
+    <>
       <Hero />
-    </body>
+      <Projects />
+    </>
   );
 };
 
