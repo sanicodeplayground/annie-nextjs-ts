@@ -1,4 +1,4 @@
-import projects from "../data/ProjectsData";
+import { projects } from "../data/ProjectsData";
 import Link from "next/link";
 
 function Projects() {

@@ -1,4 +1,4 @@
-const projects = [
+export const projects = [
   {
     id: "great-bear",
     to: "projects/great-bear",
@@ -28,5 +28,3 @@ const projects = [
     description: "Finding The Wild",
   },
 ];
-
-export default projects;
