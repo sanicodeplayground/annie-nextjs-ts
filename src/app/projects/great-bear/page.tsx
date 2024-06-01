@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "../../../data/ProjectsData";
-import { images } from "../../../data/GreatBear";
+import { projectTitle, images } from "../../../data/GreatBear";
 
 const greatBear = () => {
+  const currentProject = projects.find(
+    (project) => project.id === "great-bear"
+  );
+
   const currentProjectIndex = projects.findIndex(
     (project) => project.id === "great-bear"
   );
@@ -18,26 +22,17 @@ const greatBear = () => {
 
   return (
     <section className="container max-w-screen-xl p-4 mx-auto leading-loose">
-      <h1 className="my-4 text-4xl font-extrabold">The Tales from The North</h1>
-      <p>
-        The Tales from The North is a collection of stories, inspired by the
-        creatures that inhabit the North Pole and folk tales from the local
-        area.
-      </p>
+      <h1 className="mb-4 text-4xl font-extrabold">{currentProject?.title}</h1>
+      <p>{currentProject?.description}</p>
 
-      <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
-        {images.map((item, index) =>
-          item.src ? (
-            <li key={index} className={item.class}>
-              <Image src={item.src} alt={item.alt} width={500} height={400} />
-            </li>
-          ) : (
-            <li key={index} className={item.class}>
-              <h2 className="mt-4 mb-2 text-2xl font-extrabold">{item.h2}</h2>
-              <p>{item.p}</p>
-            </li>
-          )
-        )}
+      <ul className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl py-8">
+        {images.map((img, index) => (
+          <li key={index} className={img.class}>
+            <div>
+              <Image src={img.src} alt={img.alt} width={1500} height={1000} />
+            </div>
+          </li>
+        ))}
       </ul>
       {/* Navigation */}
       <div className="flex justify-center gap-8 py-12">

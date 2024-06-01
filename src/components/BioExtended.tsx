@@ -1,13 +1,18 @@
+import Image from "next/image";
+
 const BioExtended = () => {
   return (
     <section>
       <article className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md leading-loose [&>p]:mt-3 [&>ul]:mt-3">
         <h1 className="mb-4 text-4xl font-extrabold">About me</h1>
-        <img
-          src="./images/Annie.webp"
-          alt="Annie"
-          className="border-8 border-white bg-slate-300 size-full"
-        />
+        <div className="border-8 border-white bg-slate-300 size-full">
+          <Image
+            src="/images/Annie.webp"
+            width={800}
+            height={500}
+            alt="Annie drawing"
+          />
+        </div>
         <p>
           Hello! My name is Annie, and I am an illustrator currently based in
           Bristol.

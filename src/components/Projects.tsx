@@ -1,5 +1,6 @@
 import { projects } from "../data/ProjectsData";
 import Link from "next/link";
+import Image from "next/image";
 
 function Projects() {
   return (
@@ -14,14 +15,17 @@ function Projects() {
           <li key={project.id}>
             <Link href={`/projects/${project.id}`}>
               <div className="w-full overflow-hidden">
-                <img
-                  src={project.src}
-                  alt={project.title}
-                  className="object-cover w-full mb-2 transition duration-1000 ease-in-out hover:scale-105 bg-slate-300"
-                />
+                <div className="object-cover w-full mb-2 transition duration-1000 ease-in-out hover:scale-105 bg-slate-300">
+                  <Image
+                    src={project.src}
+                    alt={project.title}
+                    width={600}
+                    height={500}
+                  />
+                </div>
               </div>
               <h3 className="font-semibold text-custom-primary md:text-xl">
-                {project.description}
+                {project.title}
               </h3>
             </Link>
           </li>

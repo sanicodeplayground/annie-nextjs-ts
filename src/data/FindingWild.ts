@@ -6,7 +6,7 @@ interface ProjectItem {
 export const images: ProjectItem[] = [
   {
     src: "/images/portfolio/finding/finding01.jpeg",
-    class: "lg:col-span-2",
+    class: "col-span-2",
     alt: "Finding The Wild",
   },
   {
