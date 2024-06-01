@@ -6,7 +6,7 @@ interface ProjectItem {
 export const images: ProjectItem[] = [
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing01.webp",
-    class: "lg:col-span-2",
+    class: "col-span-2",
     alt: "The Nature of Ringing",
   },
   {

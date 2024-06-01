@@ -4,6 +4,9 @@ import { projects } from "../../../data/ProjectsData";
 import { items } from "../../../data/TalesFromNorth";
 
 const SingleProjectTales = () => {
+  const currentProject = projects.find(
+    (project) => project.id === "tales-from-north"
+  );
   const currentProjectIndex = projects.findIndex(
     (project) => project.id === "tales-from-north"
   );
@@ -18,18 +21,21 @@ const SingleProjectTales = () => {
 
   return (
     <section className="container max-w-screen-xl p-4 mx-auto leading-loose">
-      <h1 className="my-4 text-4xl font-extrabold">The Tales from The North</h1>
-      <p>
-        The Tales from The North is a collection of stories, inspired by the
-        creatures that inhabit the North Pole and folk tales from the local
-        area.
-      </p>
+      <h1 className="my-4 text-4xl font-extrabold">{currentProject?.title}</h1>
+      <p>{currentProject?.description}</p>
 
-      <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
+      <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
         {items.map((item, index) =>
           item.src ? (
             <li key={index} className={item.class}>
-              <Image src={item.src} alt={item.alt} width={500} height={400} />
+              <div>
+                <Image
+                  src={item.src}
+                  width={1500}
+                  height={1000}
+                  alt={item.alt}
+                />
+              </div>
             </li>
           ) : (
             <li key={index} className={item.class}>
