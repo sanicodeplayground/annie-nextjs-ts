@@ -28,14 +28,7 @@ const SingleProjectTales = () => {
         {items.map((item, index) =>
           item.src ? (
             <li key={index} className={item.class}>
-              <div>
-                <Image
-                  src={item.src}
-                  width={1500}
-                  height={1000}
-                  alt={item.alt}
-                />
-              </div>
+              <Image src={item.src} width={1500} height={1000} alt={item.alt} />
             </li>
           ) : (
             <li key={index} className={item.class}>

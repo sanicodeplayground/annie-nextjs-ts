@@ -28,14 +28,7 @@ const SingleProjectRinging = () => {
       <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
         {images.map((image, index) => (
           <li key={index} className={image.class}>
-            <div>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={1500}
-                height={1000}
-              />
-            </div>
+            <Image src={image.src} alt={image.alt} width={1500} height={1000} />
           </li>
         ))}
       </ul>

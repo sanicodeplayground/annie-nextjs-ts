@@ -28,9 +28,7 @@ const greatBear = () => {
       <ul className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl py-8">
         {images.map((img, index) => (
           <li key={index} className={img.class}>
-            <div>
-              <Image src={img.src} alt={img.alt} width={1500} height={1000} />
-            </div>
+            <Image src={img.src} alt={img.alt} width={1500} height={1000} />
           </li>
         ))}
       </ul>
