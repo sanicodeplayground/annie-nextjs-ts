@@ -27,11 +27,11 @@ const SingleProjectTales = () => {
       <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
         {items.map((item, index) =>
           item.src ? (
-            <li key={index} className={item.class}>
+            <li key={index} className={item.fullWidth ? "col-span-2" : ""}>
               <Image src={item.src} width={1500} height={1000} alt={item.alt} />
             </li>
           ) : (
-            <li key={index} className={item.class}>
+            <li key={index} className={item.fullWidth ? "col-span-2" : ""}>
               <h2 className="mt-4 mb-2 text-2xl font-extrabold">{item.h2}</h2>
               <p>{item.p}</p>
             </li>

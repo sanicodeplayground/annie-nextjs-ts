@@ -1,6 +1,6 @@
 interface ProjectItem {
   src: string;
-  class: string;
+  fullWidth: boolean;
   alt: string;
 }
 
@@ -18,47 +18,47 @@ export const projectTitle: ProjectTitleIn = {
 export const images: ProjectItem[] = [
   {
     src: "/images/portfolio/greatBear/great-bear01.webp",
-    class: "col-span-2",
+    fullWidth: true,
     alt: "The Great Bear main character",
   },
   {
     src: "/images/portfolio/greatBear/great-bear02.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear main illustration",
   },
   {
     src: "/images/portfolio/greatBear/great-bear03.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear, fish",
   },
   {
     src: "/images/portfolio/greatBear/great-bear04.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear, with boat",
   },
   {
     src: "/images/portfolio/greatBear/great-bear05.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear illustration",
   },
   {
     src: "/images/portfolio/greatBear/great-bear06.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear book photo",
   },
   {
     src: "/images/portfolio/greatBear/great-bear07.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear book photo",
   },
   {
     src: "/images/portfolio/greatBear/great-bear08.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear book photo",
   },
   {
     src: "/images/portfolio/greatBear/great-bear09.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Great Bear book photo",
   },
 ];

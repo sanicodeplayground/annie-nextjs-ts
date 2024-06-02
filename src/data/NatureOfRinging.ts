@@ -1,42 +1,42 @@
 interface ProjectItem {
   src: string;
-  class: string;
+  fullWidth: boolean;
   alt: string;
 }
 export const images: ProjectItem[] = [
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing01.webp",
-    class: "col-span-2",
+    fullWidth: true,
     alt: "The Nature of Ringing",
   },
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing02.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Nature of Ringing",
   },
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing03.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Nature of Ringing",
   },
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing04.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Nature of Ringing",
   },
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing05.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Nature of Ringing",
   },
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing06.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Nature of Ringing",
   },
   {
     src: "/images/portfolio/natureOfRinging/nature-of-ringing07.webp",
-    class: "",
+    fullWidth: false,
     alt: "The Nature of Ringing",
   },
 ];
