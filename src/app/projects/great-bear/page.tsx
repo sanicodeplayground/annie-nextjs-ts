@@ -27,7 +27,7 @@ const GreatBear = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const openLightbox = (index) => {
+  const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
     setIsOpen(true);
   };
@@ -53,8 +53,8 @@ const GreatBear = () => {
           open={isOpen}
           close={() => setIsOpen(false)}
           slides={images.map((img) => ({ src: img.src, alt: img.alt }))}
-          currentIndex={currentImageIndex}
-          onIndexChange={(index) => setCurrentImageIndex(index)}
+          index={currentImageIndex}
+          on={{ view: ({ index }) => setCurrentImageIndex(index) }}
         />
       )}
 
