@@ -73,11 +73,14 @@ const BioExtended = () => {
         </p>
         <p>Anything else please don’t hesitate to get in touch!</p>
         <div className="flex flex-col items-center mt-10 md:flex-row">
-          <img
-            className="mb-10 border-8 border-white md:w-3/4 md:mr-5"
-            src="./images/heroAnnie.webp"
-            alt="Annie"
-          />
+          <div className="mb-10 border-8 border-white md:w-3/4 md:mr-5">
+            <Image
+              src="/images/heroAnnie.webp"
+              alt="Annie"
+              width={800}
+              height={400}
+            />
+          </div>
           <a
             className="underline md:w-1/4 hover:text-custom-hover"
             href="https://www.instagram.com/anniebookerart/"

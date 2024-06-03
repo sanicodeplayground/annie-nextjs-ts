@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useRef, useState, useEffect, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -19,10 +18,10 @@ const ContactForm: React.FC = () => {
     if (form.current) {
       emailjs
         .sendForm(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
           form.current,
-          process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
         )
         .then(
           (result) => {
