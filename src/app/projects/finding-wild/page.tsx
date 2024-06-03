@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "../../../data/ProjectsData";
 import { images } from "../../../data/FindingWild";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const SingleProjectFinding = () => {
   const currentProject = projects.find(
@@ -21,6 +24,14 @@ const SingleProjectFinding = () => {
   const previousProjectId = projects[previousProjectIndex].id;
   const nextProjectId = projects[nextProjectIndex].id;
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setIsOpen(true);
+  };
+
   return (
     <section className="container max-w-screen-xl p-4 mx-auto leading-loose">
       <h1 className="my-4 text-4xl font-extrabold">{currentProject?.title}</h1>
@@ -28,12 +39,25 @@ const SingleProjectFinding = () => {
 
       <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
         {images.map((img, index) => (
-          <li key={index} className={img.fullWidth ? "col-span-2" : ""}>
+          <li
+            key={index}
+            className={img.fullWidth ? "col-span-2" : ""}
+            onClick={() => openLightbox(index)}
+            style={{ cursor: "pointer" }}
+          >
             <Image src={img.src} alt={img.alt} width={1500} height={1000} />
           </li>
         ))}
       </ul>
-
+      {isOpen && (
+        <Lightbox
+          open={isOpen}
+          close={() => setIsOpen(false)}
+          slides={images.map((img) => ({ src: img.src, alt: img.alt }))}
+          currentIndex={currentImageIndex}
+          onIndexChange={(index) => setCurrentImageIndex(index)}
+        />
+      )}
       {/* Navigation */}
       <div className="flex justify-center gap-8 py-12">
         <Link href={`/projects/${previousProjectId}`}>
