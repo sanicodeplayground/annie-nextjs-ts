@@ -26,7 +26,7 @@ const SingleProjectTales = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const openLightbox = (index) => {
+  const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
     setIsOpen(true);
   };
@@ -61,10 +61,10 @@ const SingleProjectTales = () => {
           open={isOpen}
           close={() => setIsOpen(false)}
           slides={items
-            .filter((item) => item.src)
-            .map((item) => ({ src: item.src, alt: item.alt }))}
-          currentIndex={currentImageIndex}
-          onIndexChange={(index) => setCurrentImageIndex(index)}
+            .filter((item) => item.src !== undefined)
+            .map((item) => ({ src: item.src as string, alt: item.alt }))}
+          index={currentImageIndex}
+          on={{ view: ({ index }) => setCurrentImageIndex(index) }}
         />
       )}
 
