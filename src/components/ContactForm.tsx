@@ -1,26 +1,64 @@
-const ContactForm = () => {
+"use client";
+
+import React, { useRef, useState, FormEvent } from "react";
+import emailjs from "@emailjs/browser";
+
+const ContactForm: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [message, setMessage] = useState<string>("");
+  const [isSent, setIsSent] = useState<boolean>(false);
+
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          form.current,
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+        )
+        .then(
+          (result) => {
+            setIsSent(true);
+            setTimeout(() => {
+              setIsSent(false);
+              form.current?.reset();
+            }, 5000);
+            setMessage("Email successfully sent!");
+          },
+          (error) => {
+            if (error.text) {
+              setMessage(`Failed to send email. Error: ${error.text}`);
+            } else {
+              setMessage("Failed to send email. Please try again later.");
+            }
+          }
+        );
+    }
+  };
+
   return (
     <section>
       <div className="max-w-screen-md px-4 py-8 mx-auto lg:py-16">
-        <h1 className="items-center gap-16 py-8 text-4xl font-extrabold">
-          Contact me
-        </h1>
-        <p>
-          Please feel free to contact me about work or oppourtunities via my
+        <h1 className="text-4xl font-extrabold mb-4">Contact me</h1>
+        <p className="mb-4">
+          Please feel free to contact me about work or opportunities via my
           email or telephone number.
         </p>
-        <p>
+        <p className="mb-4">
           <span>✉️</span> anniebookerillustration@gmail.com
         </p>
-        <p>
+        <p className="mb-4">
           <span>📱</span> 07383085096
         </p>
-        <p>
-          As always I am keen to be involved in conservation, rewildling work in
+        <p className="mb-8">
+          As always I am keen to be involved in conservation, rewilding work in
           any way.
         </p>
 
-        <form className="mt-10 space-y-6">
+        <form className="space-y-6" ref={form} onSubmit={sendEmail}>
           <div>
             <label
               htmlFor="user_name"
@@ -62,9 +100,12 @@ const ContactForm = () => {
               name="message"
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-sm shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
               placeholder="Write your message"
+              rows={6}
+              required
             ></textarea>
           </div>
-
+          {isSent && <p className="text-green-600">Email successfully sent!</p>}
+          {!isSent && message && <p>{message}</p>}
           <button
             type="submit"
             className="px-5 py-3 text-sm font-medium text-center text-white bg-gray-700 rounded-sm sm:w-fit hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300"
