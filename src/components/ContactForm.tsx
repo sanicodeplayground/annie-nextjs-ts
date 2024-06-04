@@ -52,7 +52,10 @@ const ContactForm: React.FC = () => {
           email or telephone number.
         </p>
         <p className="mb-4">
-          <span>✉️</span> anniebookerillustration@gmail.com
+          <span>✉️</span>{" "}
+          <a href="mailto&#58;a%&#54;&#69;%6&#69;ie&#98;ook&#101;ri&#108;lu%&#55;3tra&#116;&#105;on&#64;g%6Da%6&#57;%6C&#46;c%6&#70;m">
+            anni&#101;b&#111;&#111;&#107;erillustra&#116;i&#111;n&#64;gm&#97;il&#46;com
+          </a>
         </p>
         <p className="mb-4">
           <span>📱</span> 07383085096
