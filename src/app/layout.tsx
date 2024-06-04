@@ -5,7 +5,7 @@ import { DM_Serif_Display } from "next/font/google";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Annie Booker - Illustrator based in Bristol, UK",
+  title: "Annie Booker | Illustrator based in Bristol, UK",
   description:
     "Discover the stunning illustrations by Annie Booker. Explore a world of creativity and color through Annie's unique artistic vision. Illustrations for social media, murals, menus, blog posts, newsletters, websites and more...",
 };
