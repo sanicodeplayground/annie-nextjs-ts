@@ -1,16 +1,20 @@
 import "./globals.css";
-
-import type { Metadata } from "next";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-// import { Inter } from "next/font/google";
-// const inter = Inter({ subsets: ["latin"] });
+import { DM_Serif_Display } from "next/font/google";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Annie Booker, an illustrator based in Bristol",
+  title: "Annie Booker - Illustrator based in Bristol, UK",
   description:
-    "Discover the stunning illustrations by Annie Booker. Explore a world of creativity and color through Annie's unique artistic vision.",
+    "Discover the stunning illustrations by Annie Booker. Explore a world of creativity and color through Annie's unique artistic vision. Illustrations for social media, murals, menus, blog posts, newsletters, websites and more...",
 };
+
+const dMSerifDisplay = DM_Serif_Display({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -18,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={dMSerifDisplay.className}>
       <body className="bg-custom-light text-custom-primary">
         <Header />
         {children}

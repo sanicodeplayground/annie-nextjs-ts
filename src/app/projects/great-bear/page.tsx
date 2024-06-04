@@ -1,74 +1,14 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { projects } from "../../../data/ProjectsData";
-import { images } from "../../../data/GreatBear";
-import { useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+import ClientComponent from "./ClientComponent";
+import { Metadata } from "next";
 
-const GreatBear = () => {
-  const currentProject = projects.find(
-    (project) => project.id === "great-bear"
-  );
-
-  const currentProjectIndex = projects.findIndex(
-    (project) => project.id === "great-bear"
-  );
-
-  // Calculate previous and next project indexes
-  const previousProjectIndex =
-    (currentProjectIndex - 1 + projects.length) % projects.length;
-  const nextProjectIndex = (currentProjectIndex + 1) % projects.length;
-
-  const previousProjectId = projects[previousProjectIndex].id;
-  const nextProjectId = projects[nextProjectIndex].id;
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const openLightbox = (index: number) => {
-    setCurrentImageIndex(index);
-    setIsOpen(true);
-  };
-  return (
-    <section className="container max-w-screen-xl p-4 mx-auto leading-loose">
-      <h1 className="mb-4 text-4xl font-extrabold">{currentProject?.title}</h1>
-      <p>{currentProject?.description}</p>
-
-      <ul className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl py-8">
-        {images.map((img, index) => (
-          <li
-            key={index}
-            className={img.fullWidth ? "col-span-2" : ""}
-            onClick={() => openLightbox(index)}
-            style={{ cursor: "pointer" }}
-          >
-            <Image src={img.src} alt={img.alt} width={1500} height={1000} />
-          </li>
-        ))}
-      </ul>
-      {isOpen && (
-        <Lightbox
-          open={isOpen}
-          close={() => setIsOpen(false)}
-          slides={images.map((img) => ({ src: img.src, alt: img.alt }))}
-          index={currentImageIndex}
-          on={{ view: ({ index }) => setCurrentImageIndex(index) }}
-        />
-      )}
-
-      {/* Navigation */}
-      <div className="flex justify-center gap-8 py-12">
-        <Link href={`/projects/${previousProjectId}`}>
-          <p className="hover:text-custom-hover">&larr; Previous </p>
-        </Link>
-        <Link href={`/projects/${nextProjectId}`}>
-          <p className="hover:text-custom-hover">Next &rarr;</p>
-        </Link>
-      </div>
-    </section>
-  );
+export const metadata: Metadata = {
+  title: "Illustrations of 'The Great Bear' by Annie Booker",
+  description:
+    "Explore 'The Great Bear', illustrated by Annie Booker. This modern retelling of the Inuit tribe folk tale about the bear god Nanook features a series of stunning mixed media illustrations. Annie's artwork captures the transformative journey of a fisherman and highlights the consequences of invasive human actions. Discover her unique artistic style through full-width pieces and detailed vignettes that bring this compelling narrative to life, emphasising hope and redemption.",
 };
 
-export default GreatBear;
+const page = () => {
+  return <ClientComponent />;
+};
+
+export default page;
