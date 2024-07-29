@@ -34,8 +34,20 @@ const SingleProjectRinging = () => {
   return (
     <section className="container max-w-screen-xl p-4 mx-auto leading-loose">
       <h1 className="my-4 text-4xl font-extrabold">{currentProject?.title}</h1>
-      <p>{currentProject?.description}</p>
-
+      <p className="mb-2">{currentProject?.description1}</p>
+      <p className="mb-2">{currentProject?.description2}</p>
+      <p>
+        {currentProject?.description3?.split("The Eric Hosking Trust")[0]}
+        <a
+          href={currentProject?.trustURL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-custom-hover"
+        >
+          The Eric Hosking Trust
+        </a>
+        {currentProject?.description3?.split("The Eric Hosking Trust")[1]}
+      </p>
       <ul className="grid grid-cols-1 py-8 gap-y-8 lg:grid-cols-2 lg:gap-y-8 lg:gap-x-8 round-xl">
         {images.map((img, index) => (
           <li

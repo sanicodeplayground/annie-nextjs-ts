@@ -20,7 +20,13 @@ export const projects = [
     to: "projects/tales-from-the-north",
     title: "The Nature of Ringing",
     src: "/images/portfolio/02.webp",
-    description: "The Nature of Ringing",
+    trustURL: "https://erichoskingtrust.com",
+    description1:
+      "The nature of ringing is a project that explores the relationship between avian life and people, through reportage drawing, field work and careful visual studies.",
+    description2:
+      "Bird ringing is an intimate yet purposeful way to document and learn about species migration, longevity and inform conservation and ecological studies. From the delicate handling, to careful closing of metal rings and reading the bird's plumage, each bird tells a story, and it takes people to understand it.",
+    description3:
+      "Since the projects end I have continued my documentation of ringing, as well as began my own journey as a trainee myself. This project would not have been possible if not for The Eric Hosking Trust, who have been supporting ornithological and nature projects around the world since 1993.",
   },
   {
     id: "finding-wild",
