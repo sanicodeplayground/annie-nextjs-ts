@@ -1,0 +1,17 @@
+# Ignore artifacts:
+build
+.next
+out
+
+# Ignore configuration files:
+*.config.js
+*.config.ts
+
+# Ignore log files:
+*.log
+
+# Ignore node_modules:
+node_modules
+
+# Ignore specific files or directories:
+public/static

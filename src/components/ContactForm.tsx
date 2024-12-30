@@ -1,47 +1,53 @@
-"use client";
-import React, { useRef, useState, useEffect, FormEvent } from "react";
-import emailjs from "@emailjs/browser";
+'use client'
+import React, { useRef, useState, useEffect, FormEvent } from 'react'
+import emailjs from '@emailjs/browser'
 
 const ContactForm: React.FC = () => {
-  const form = useRef<HTMLFormElement>(null);
-  const [message, setMessage] = useState<string>("");
-  const [isSent, setIsSent] = useState<boolean>(false);
-  const [isClient, setIsClient] = useState<boolean>(false);
+  const form = useRef<HTMLFormElement>(null)
+  const [message, setMessage] = useState<string>('')
+  const [isSent, setIsSent] = useState<boolean>(false)
+  const [isClient, setIsClient] = useState<boolean>(false)
+
+  const {
+    NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+    NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+    NEXT_PUBLIC_EMAILJS_USER_ID,
+  } = process.env
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    setIsClient(true)
+  }, [])
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (form.current) {
       emailjs
         .sendForm(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
           form.current,
-          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+          NEXT_PUBLIC_EMAILJS_USER_ID
         )
         .then(
           (result) => {
-            setIsSent(true);
+            setIsSent(true)
             setTimeout(() => {
-              setIsSent(false);
-              form.current?.reset();
-            }, 5000);
-            setMessage("Email successfully sent!");
+              setIsSent(false)
+              form.current?.reset()
+            }, 5000)
+            setMessage('Email successfully sent!')
           },
           (error) => {
             if (error.text) {
-              setMessage(`Failed to send email. Error: ${error.text}`);
+              setMessage(`Failed to send email. Error: ${error.text}`)
             } else {
-              setMessage("Failed to send email. Please try again later.");
+              setMessage('Failed to send email. Please try again later.')
             }
           }
-        );
+        )
     }
-  };
+  }
 
   return (
     <section>
@@ -52,7 +58,7 @@ const ContactForm: React.FC = () => {
           email or telephone number.
         </p>
         <p className="mb-4">
-          <span>✉️</span>{" "}
+          <span>✉️</span>{' '}
           <a href="mailto&#58;a%&#54;&#69;%6&#69;ie&#98;ook&#101;ri&#108;lu%&#55;3tra&#116;&#105;on&#64;g%6Da%6&#57;%6C&#46;c%6&#70;m">
             anni&#101;b&#111;&#111;&#107;erillustra&#116;i&#111;n&#64;gm&#97;il&#46;com
           </a>
@@ -133,7 +139,7 @@ const ContactForm: React.FC = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm
