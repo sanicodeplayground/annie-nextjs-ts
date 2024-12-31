@@ -11,7 +11,7 @@ const ContactForm: React.FC = () => {
   const {
     NEXT_PUBLIC_EMAILJS_SERVICE_ID,
     NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-    NEXT_PUBLIC_EMAILJS_USER_ID,
+    NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
   } = process.env
 
   useEffect(() => {
@@ -27,10 +27,11 @@ const ContactForm: React.FC = () => {
           NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
           NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
           form.current,
-          NEXT_PUBLIC_EMAILJS_USER_ID
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
         )
         .then(
           (result) => {
+            console.log('Email sent successfully:', result)
             setIsSent(true)
             setTimeout(() => {
               setIsSent(false)
@@ -42,6 +43,7 @@ const ContactForm: React.FC = () => {
             if (error.text) {
               setMessage(`Failed to send email. Error: ${error.text}`)
             } else {
+              console.error('Error sending email:', error)
               setMessage('Failed to send email. Please try again later.')
             }
           }

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.3.3",
+    "@emailjs/browser": "^4.4.1",
     "@fancyapps/ui": "^5.0.36",
     "emailjs-com": "^3.2.0",
     "next": "^15.1.3",
