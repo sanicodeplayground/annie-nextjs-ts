@@ -21,7 +21,7 @@ const ContactForm: React.FC = () => {
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
           process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "",
           form.current,
-          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+          process.env.NEXT_PUBLIC_EMAILJS_ID
         )
         .then(
           (result) => {
