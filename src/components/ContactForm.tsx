@@ -8,11 +8,8 @@ const ContactForm: React.FC = () => {
   const [isSent, setIsSent] = useState<boolean>(false)
   const [isClient, setIsClient] = useState<boolean>(false)
 
-  const {
-    NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-    NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-    NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-  } = process.env
+  const { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } =
+    process.env
 
   useEffect(() => {
     setIsClient(true)
@@ -24,10 +21,10 @@ const ContactForm: React.FC = () => {
     if (form.current) {
       emailjs
         .sendForm(
-          NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
-          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
+          EMAILJS_SERVICE_ID ?? '',
+          EMAILJS_TEMPLATE_ID ?? '',
           form.current,
-          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+          EMAILJS_PUBLIC_KEY
         )
         .then(
           (result) => {
